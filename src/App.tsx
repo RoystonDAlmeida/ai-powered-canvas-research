@@ -1,4 +1,3 @@
-import { CopilotKit } from '@copilotkit/react-core';
 import {
   CopilotChat
 } from '@copilotkit/react-ui';
@@ -11,8 +10,8 @@ import "@copilotkit/react-ui/styles.css";
 
 function App() {
   return (
-    <CopilotKit publicApiKey={import.meta.env.VITE_COPILOT_API_KEY}>
-      <AppHeader description="Your Intelligent Research Companion"/>
+    <>
+      <AppHeader/>
       <div className="w-96 fixed right-0 top-0 h-full z-50 bg-gray-50 shadow-lg p-4 border-l border-gray-300 overflow-y-auto flex flex-col">
         <CopilotChat
           labels={{
@@ -25,7 +24,7 @@ function App() {
           Input={CustomInput}
         />
       </div>
-    </CopilotKit>
+    </>
   );
 }
 
