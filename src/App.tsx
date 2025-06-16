@@ -1,5 +1,6 @@
 import {
-  CopilotChat
+  CopilotChat,
+  useCopilotChatSuggestions
 } from '@copilotkit/react-ui';
 import AppHeader from './components/AppHeader';
 import CustomUserMessage from './components/ChatWindowComponents/CustomUserMessage';
@@ -9,6 +10,12 @@ import CustomSuggestionsList from './components/ChatWindowComponents/CustomSugge
 import "@copilotkit/react-ui/styles.css";
 
 function App() {
+  useCopilotChatSuggestions(
+    {
+      instructions: "Suggest three random topics to research on",
+    }
+  );
+
   return (
     <>
       <AppHeader/>
@@ -18,8 +25,21 @@ function App() {
             title: "Research Assistant",
             initial: "Hi! 👋 How can I assist you today?",
           }}
-          UserMessage = {CustomUserMessage}
-          AssistantMessage = {CustomAssistantMessage}
+          instructions={`You are a collaborative research assistant with multiple specialized agents:
+
+            1. Research Agent: Conducts comprehensive research on topics
+            2. Summarization Agent: Creates concise summaries and outlines
+            3. Citation Agent: Manages references and citations
+
+            Example suggestions:
+            - Research the impact of artificial intelligence on healthcare
+            - Create an outline for a paper on climate change solutions
+            - Summarize recent developments in quantum computing
+            - Find peer-reviewed sources about renewable energy
+            - Help me structure my research on blockchain technology`}
+
+          UserMessage={CustomUserMessage}
+          AssistantMessage={CustomAssistantMessage}
           RenderSuggestionsList={CustomSuggestionsList}
           Input={CustomInput}
         />
