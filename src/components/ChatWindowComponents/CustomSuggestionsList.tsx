@@ -8,15 +8,15 @@ const CustomSuggestionsList: React.FC<RenderSuggestionsListProps> = ({ suggestio
 
   return (
     <div className="suggestions flex flex-col gap-2 p-4 border-t border-gray-200 mt-4">
-      <h1 className="font-semibold text-gray-700 text-lg mb-2">You might also ask:</h1>
-      <div className="flex flex-wrap gap-2">
+      <h1 className="font-semibold text-gray-600 text-lg mb-2">Suggested:</h1>
+      <div className="flex flex-wrap gap-1">
         {suggestions.map((suggestion: CopilotChatSuggestion, index) => (
           <RenderSuggestion
             key={index}
             title={suggestion.title}
             message={suggestion.message}
             partial={suggestion.partial}
-            className="rounded-md border border-gray-500 bg-white px-3 py-1 text-sm shadow-sm hover:bg-gray-100 transition-colors cursor-pointer"
+            className="rounded-md border border-blue-700 bg-white px-3 py-1 text-sm shadow-sm hover:bg-gray-100 transition-colors cursor-pointer"
             onClick={() => onSuggestionClick(suggestion.message)}
           />
         ))}
